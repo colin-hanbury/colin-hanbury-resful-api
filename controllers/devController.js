@@ -1,7 +1,7 @@
 
 const express = require("express");
 
-const Candidate = require("../models/candidate.js");
+const Candidate = require("../models/colin.js");
 
 const router = express.Router();
 

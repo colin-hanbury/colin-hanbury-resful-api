@@ -1,9 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const {Skill} = require("../models/skill.js");
-const {Experience} = require("../models/experience.js");
+import experienceSchema from "./experience.js";
 
-const candidateSchema = mongoose.Schema({
+const colinSchema = mongoose.Schema({
     forename: {
         type: String,
         required: true
@@ -21,14 +20,14 @@ const candidateSchema = mongoose.Schema({
         required: true
     },
     skills: {
-        type: [Skill],
+        type: [String],
         default: undefined
     },
     experience: {
-        type: [Experience],
+        type: [experienceSchema],
         default: undefined
       }
 
 });
 
-module.exports = mongoose.model('Candidate', candidateSchema);
+export default colinSchema;

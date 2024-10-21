@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const experienceSchema = mongoose.Schema({
     employer : {
@@ -14,9 +14,8 @@ const experienceSchema = mongoose.Schema({
         required: true,
     },
     details: {
-        type: String,
+        type: [String],
         required: false
     },
 });
-
-module.exports = mongoose.model('Experience', experienceSchema);
+export default experienceSchema;
