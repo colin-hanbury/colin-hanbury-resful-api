@@ -121,7 +121,7 @@ userSchema.statics.getUserById = async function (id) {
   
   /**
    * @param {String} id - id of user
-   * @return {Object} - details of action performed
+   * @returns {Object} - details of action performed
    */
   userSchema.statics.deleteByUserById = async function (id) {
     try {

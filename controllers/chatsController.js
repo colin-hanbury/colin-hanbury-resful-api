@@ -12,6 +12,7 @@
 import makeValidation from '@withvoid/make-validation';
 
 import ChatMessage from "../models/chatMessage.js";
+import ChatMessageViewed from "../models/chatMessageViewed.js";
 import ChatRoom from "../models/chatRoom.js";
 import User from "../models/user.js";
 export default {
@@ -104,7 +105,7 @@ export default {
   },
   markConversationReadByRoomId: async (req, res) => {
     try {
-      const { roomId } = req.params;
+      const { roomId, messageId, viewerId } = req.body;
       const room = await ChatRoom.getChatRoomByRoomId(roomId)
       if (!room) {
         return res.status(400).json({
@@ -112,8 +113,9 @@ export default {
           message: 'No room exists for this id',
         })
       }
+      const like = ChatMessageViewed.createLike(messageId, viewerId);
 
-      const currentLoggedUser = req.userId;
+      // const currentLoggedUser = req.userId;
       const result = await ChatMessage.markMessageRead(roomId, currentLoggedUser);
       return res.status(200).json({ success: true, data: result });
     } catch (error) {

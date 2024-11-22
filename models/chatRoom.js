@@ -19,7 +19,7 @@ const chatRoomSchema = mongoose.Schema(
 
   /**
  * @param {String} roomId - id of chatroom
- * @return {Object} chatroom
+ * @returns {Object} chatroom
  */
 chatRoomSchema.statics.getChatRoomByRoomId = async function (roomId) {
     try {

@@ -6,7 +6,7 @@ const chatMessageSchema = mongoose.Schema(
     {
         _id: {
             type: String,
-            default: () => uuidv4().replace(/\-/g, ""),
+            default: () => uuidv4(),//.replace(/\-/g, ""),
         },
         chatRoomId: String,
         message: mongoose.Schema.Types.Mixed,
@@ -18,5 +18,14 @@ const chatMessageSchema = mongoose.Schema(
       collection: "chatmessages",
     }
   );
+
+  /**
+   * @param {String} roomId
+   * @param {String} viewerId
+   * @returns {Object} result details
+   */
+  chatMessageSchema.statics.markMessageAsRead = async function (roomId, viewerId) {
+    const result = await this.update()
+  }
 
   export default chatMessageSchema;

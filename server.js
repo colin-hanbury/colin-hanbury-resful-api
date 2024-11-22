@@ -7,6 +7,7 @@ import "./loadEnv.js";
 
 import chatRoutes from "./routes/chatRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
 import WebSocketController from "./controllers/WebSocketController.js";
 
 
@@ -27,6 +28,7 @@ app.use(express.json());
 
 app.use("/chat", chatRoutes);
 app.use("/auth", authRoutes);
+app.use("/blog", blogRoutes);
 
 
 
